@@ -3,7 +3,8 @@
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/inter";
 
-@custom-variant dark (&:is(.dark *));
+/* 1. We change the custom variant to listen for a '.light' tag instead of '.dark' */
+@custom-variant light (&:is(.light *));
 
 @theme inline {
   --color-background: var(--background);
@@ -22,11 +23,8 @@
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
-  
-  /* ── ADDED CUSTOM SUCCESS TOKENS FOR COHERENT UI ── */
   --color-success: var(--success);
   --color-success-foreground: var(--success-foreground);
-
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
@@ -55,7 +53,55 @@
 }
 
 :root {
-  /* Crisp Light Mode Baseline */
+  /* ── 2. NEW DEFAULT BASELINE: Cyber Cyberpunk Theme (Loads instantly) ── */
+  --background: oklch(0.12 0.01 260);
+  --foreground: oklch(0.985 0 0);
+  
+  --card: oklch(0.16 0.02 265);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.16 0.02 265);
+  --popover-foreground: oklch(0.985 0 0);
+  
+  --primary: oklch(0.60 0.28 310);
+  --primary-foreground: oklch(0.985 0 0);
+  
+  --secondary: oklch(0.20 0.03 265);
+  --secondary-foreground: oklch(0.85 0.06 310);
+  
+  --muted: oklch(0.20 0.02 265);
+  --muted-foreground: oklch(0.65 0.04 265);
+  --accent: oklch(0.22 0.04 265);
+  --accent-foreground: oklch(0.985 0 0);
+  
+  --destructive: oklch(0.62 0.22 25);
+  --destructive-foreground: oklch(0.985 0 0);
+  
+  --success: oklch(0.78 0.22 170);
+  --success-foreground: oklch(0.15 0.04 170);
+  
+  --border: oklch(0.22 0.03 265);
+  --input: oklch(0.20 0.03 265);
+  --ring: oklch(0.60 0.28 310);
+  --radius: 0.625rem;
+
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+
+  --sidebar: oklch(0.14 0.015 260);
+  --sidebar-foreground: oklch(0.92 0.01 260);
+  --sidebar-primary: oklch(0.60 0.28 310);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.18 0.02 265);
+  --sidebar-accent-foreground: oklch(0.95 0.02 310);
+  --sidebar-border: oklch(0.18 0.02 265);
+  --sidebar-ring: oklch(0.60 0.28 310);
+}
+
+/* ── 3. REVERSED SELECTOR: Crisp White Mode Override ── */
+.light {
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -79,12 +125,7 @@
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
   --ring: oklch(0.708 0 0);
-  --radius: 0.625rem;
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
+
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -93,53 +134,6 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-}
-
-.dark {
-  /* Deep Midnight Charcoal */
-  --background: oklch(0.12 0.01 260);
-  --foreground: oklch(0.985 0 0);
-  
-  /* Subtle Dark Grape Surface Elevation */
-  --card: oklch(0.16 0.02 265);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.16 0.02 265);
-  --popover-foreground: oklch(0.985 0 0);
-  
-  /* Cyber Neon Purple Button Accent */
-  --primary: oklch(0.60 0.28 310);
-  --primary-foreground: oklch(0.985 0 0);
-  
-  /* Darker Interactive Secondary Blocks */
-  --secondary: oklch(0.20 0.03 265);
-  --secondary-foreground: oklch(0.85 0.06 310);
-  
-  --muted: oklch(0.20 0.02 265);
-  --muted-foreground: oklch(0.65 0.04 265);
-  --accent: oklch(0.22 0.04 265);
-  --accent-foreground: oklch(0.985 0 0);
-  
-  --destructive: oklch(0.62 0.22 25);
-  --destructive-foreground: oklch(0.985 0 0);
-  
-  /* Electric Neon Mint for Ledger and Balance success states */
-  --success: oklch(0.78 0.22 170);
-  --success-foreground: oklch(0.15 0.04 170);
-  
-  /* Dark borders with high-tech tint lines */
-  --border: oklch(0.22 0.03 265);
-  --input: oklch(0.20 0.03 265);
-  --ring: oklch(0.60 0.28 310);
-  
-  /* Immersive cohesive Navigation Sidebar mapping */
-  --sidebar: oklch(0.14 0.015 260);
-  --sidebar-foreground: oklch(0.92 0.01 260);
-  --sidebar-primary: oklch(0.60 0.28 310);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.18 0.02 265);
-  --sidebar-accent-foreground: oklch(0.95 0.02 310);
-  --sidebar-border: oklch(0.18 0.02 265);
-  --sidebar-ring: oklch(0.60 0.28 310);
 }
 
 @layer base {

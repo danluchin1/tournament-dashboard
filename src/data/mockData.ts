@@ -23,7 +23,7 @@ export const MOCK_TOURNAMENTS: Tournament[] = [
         id: 't-2',
         name: 'Challenger Arena Solo Queue Cup',
         game: 'League of Legends',
-        entryFee: 0, // Free to enter
+        entryFee: 0,
         prizePool: 1000,
         status: 'active',
         participantsCount: 128,
