@@ -2,7 +2,7 @@
 
 A premium, high-performance esports tournament and asset management dashboard designed for competitive gaming ecosystems. The platform features an integrated responsive navigation structure, real-time reactive wallet metrics, persistent global data states, smooth context-driven dark/light mode toggles, and customized cyberpunk design elements.
 
-🎯 **[Live Demo]()**
+🎯 **[Live Demo](https://tournament-dash.netlify.app/)**
 
 ---
 
