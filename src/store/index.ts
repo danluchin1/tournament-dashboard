@@ -1,11 +1,16 @@
 import { create } from 'zustand';
 import { createWalletSlice } from './slices/walletSlice';
 import { createTournamentSlice } from './slices/tournamentSlice';
-import type { WalletSlice, TournamentSlice } from '@/types';
+import type { CombinedStore } from '@/types';
+import { createJSONStorage, persist } from "zustand/middleware";
 
-type AppStoreState = WalletSlice & TournamentSlice;
-
-export const useAppStore = create<AppStoreState>()((...a) => ({
-    ...createWalletSlice(...a),
-    ...createTournamentSlice(...a),
-}));
+export const useAppStore = create<CombinedStore>()(persist(
+    (...a) => ({
+        ...createWalletSlice(...a),
+        ...createTournamentSlice(...a),
+    }),
+    {
+        name: "arena-storage",
+        storage: createJSONStorage(() => localStorage),
+    }
+));

@@ -3,7 +3,6 @@
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/inter";
 
-/* 1. We change the custom variant to listen for a '.light' tag instead of '.dark' */
 @custom-variant light (&:is(.light *));
 
 @theme inline {
@@ -53,32 +52,31 @@
 }
 
 :root {
-  /* ── 2. NEW DEFAULT BASELINE: Cyber Cyberpunk Theme (Loads instantly) ── */
   --background: oklch(0.12 0.01 260);
   --foreground: oklch(0.985 0 0);
-  
+
   --card: oklch(0.16 0.02 265);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.16 0.02 265);
   --popover-foreground: oklch(0.985 0 0);
-  
+
   --primary: oklch(0.60 0.28 310);
   --primary-foreground: oklch(0.985 0 0);
-  
+
   --secondary: oklch(0.20 0.03 265);
   --secondary-foreground: oklch(0.85 0.06 310);
-  
+
   --muted: oklch(0.20 0.02 265);
   --muted-foreground: oklch(0.65 0.04 265);
   --accent: oklch(0.22 0.04 265);
   --accent-foreground: oklch(0.985 0 0);
-  
+
   --destructive: oklch(0.62 0.22 25);
   --destructive-foreground: oklch(0.985 0 0);
-  
+
   --success: oklch(0.78 0.22 170);
   --success-foreground: oklch(0.15 0.04 170);
-  
+
   --border: oklch(0.22 0.03 265);
   --input: oklch(0.20 0.03 265);
   --ring: oklch(0.60 0.28 310);
@@ -100,7 +98,6 @@
   --sidebar-ring: oklch(0.60 0.28 310);
 }
 
-/* ── 3. REVERSED SELECTOR: Crisp White Mode Override ── */
 .light {
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -118,7 +115,7 @@
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: hsl(0 0% 98%);
-  
+
   --success: oklch(0.60 0.15 150);
   --success-foreground: oklch(0.985 0 0);
 
@@ -144,8 +141,46 @@
   body {
     @apply bg-background text-foreground antialiased;
   }
-  
+
   html {
     @apply font-sans;
+  }
+}
+
+@layer utilities {
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--background);
+    border-left: 1px solid rgba(255, 255, 255, 0.03);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: color-mix(in oklch, var(--muted-foreground) 30%, transparent);
+    border-radius: 100px;
+    border: 2px solid var(--background);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: color-mix(in oklch, var(--primary) 70%, transparent);
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+    background: var(--primary);
   }
 }

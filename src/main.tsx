@@ -8,6 +8,7 @@ import Tournaments from './pages//tournaments/TournamentsPage.tsx';
 import WalletPage from './pages/wallet/WalletPage.tsx';
 import NotFoundPage from './pages/NotFoundPage.tsx';
 import TournamentDetails from './pages/tournaments/tournament-details/TournamentDetailsPage.tsx';
+import { ThemeProvider } from './context/ThemeContext.tsx';
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <ThemeProvider>
+      <RouterProvider router={router} />
+    </ThemeProvider>
   </StrictMode>,
 )

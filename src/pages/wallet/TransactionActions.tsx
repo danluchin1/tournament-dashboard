@@ -31,7 +31,7 @@ export function TransactionActions({ onExecuteAction }: TransactionActionsProps)
                     Manage Your Assets
                 </CardTitle>
             </CardHeader>
-            <CardContent className="flex flex-col sm:flex-row gap-3">
+            <CardContent className="flex flex-col xl:flex-row gap-3">
                 <Button
                     onClick={() => setActiveMode('deposit')}
                     className="flex-1 bg-success/20 text-success border border-success/30 hover:bg-success/30 font-bold py-6 rounded-xl"
